@@ -1,12 +1,12 @@
 class Asiento:
-	color_valido = ["rojo","verde","amarillo","negro","blanco"]
+	colorValido = ["rojo","verde","amarillo","negro","blanco"]
 	def __init__(self, color, precio, registro):
 		self.color = color
 		self.precio = precio
 		self.registro = registro
 
 	def cambiarColor(self, color):
-		if color in color_valido:
+		if color in self.colorValido:
 			self.color = color
 
 class Auto:
@@ -21,7 +21,7 @@ class Auto:
 
 	def cantidadAsientos(self):
 		cantidad = 0
-		for asiento in asientos:
+		for asiento in self.asientos:
 			if (type(asiento) is Asiento):
 				cantidad += 1
 		return cantidad
@@ -30,7 +30,7 @@ class Auto:
 		integridad = True
 		if (self.registro != self.motor.registro):
 			integridad = False
-		for asiento in asientos:
+		for asiento in self.asientos:
 			if (type(asiento) is Asiento):
 				if (self.registro != asiento.registro):
 					integridad = False
